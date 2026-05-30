@@ -9,7 +9,7 @@
     <form>
     <h1>Payment page</h1>
     <h2 > contact info</h2>
-    <p> Name: <input type="text"></p>
+    <p> Name: <input type="text" name="name" required></p>
     
         <fieldset >
             <legend>Gender</legend>
@@ -42,8 +42,10 @@
             expiry date:<input type="date" name="exp date">
         </p>
         <p>
-            CVV:<input type="password"
+            CVV:<input type="password" name="cvv">
+           
         </p>
+         <input type="submit" value="pay now">
         <p>
             <input type="submit">
             <input type="reset">
