@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skycast — Weather by Pincode</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🌤</div>
+      <h1>Sky<span>cast</span></h1>
+    </div>
+    <p>Live weather by Indian pincode</p>
+  </header>
+
+  <div class="search-wrap">
+    <input type="text" id="pin" placeholder="Enter 6-digit pincode..." maxlength="6" inputmode="numeric" />
+    <button onclick="getWeather()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Search
+    </button>
+  </div>
+
+  <div class="error-box" id="err">
+    <span>⚠️</span> <span id="err-text"></span>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Fetching weather data…</p>
+  </div>
+
+  <div class="placeholder" id="placeholder">
+    <div class="placeholder-icon">🗺️</div>
+    <p>Enter any 6-digit Indian pincode<br>to get live weather updates</p>
+  </div>
+
+  <div id="result">
+    <div class="loc-row">
+      <div>
+        <div class="loc-name" id="loc-name"></div>
+        <div class="loc-meta" id="loc-meta"></div>
+      </div>
+      <div class="update-time" id="update-time"></div>
+    </div>
+
+    <div class="hero-card">
+      <div>
+        <div class="temp-display">
+          <div class="temp-big" id="temp"></div>
+          <div class="temp-deg">°C</div>
+        </div>
+        <div class="feels-row">Feels like <span id="feels"></span>°C</div>
+      </div>
+      <div class="hero-right">
+        <span class="weather-emoji" id="wicon"></span>
+        <div class="weather-desc-text" id="wdesc"></div>
+        <div class="hi-lo">H:<span id="tmax"></span>° L:<span id="tmin"></span>°</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-ico ico-blue">💧</div>
+        <div class="stat-info">
+          <div class="stat-lbl">Humidity</div>
+          <div class="stat-val"><span id="hum"></span><span class="stat-unit-sm"> %</span></div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-ico ico-purple">💨</div>
+        <div class="stat-info">
+          <div class="stat-lbl">Wind Speed</div>
+          <div class="stat-val"><span id="wind"></span><span class="stat-unit-sm"> km/h</span></div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-ico ico-green">👁️</div>
+        <div class="stat-info">
+          <div class="stat-lbl">Visibility</div>
+          <div class="stat-val"><span id="vis"></span><span class="stat-unit-sm"> km</span></div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-ico ico-amber">🌡️</div>
+        <div class="stat-info">
+          <div class="stat-lbl">Pressure</div>
+          <div class="stat-val"><span id="pres"></span><span class="stat-unit-sm"> hPa</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">5-day forecast</div>
+    <div class="forecast" id="forecast"></div>
+
+    <div class="section-label">Sunrise &amp; Sunset</div>
+    <div class="sun-row">
+      <div class="sun-card">
+        <div class="sun-ico">🌅</div>
+        <div class="sun-info"><div class="sun-lbl">Sunrise</div><div class="sun-val" id="sunrise"></div></div>
+      </div>
+      <div class="sun-card">
+        <div class="sun-ico">🌇</div>
+        <div class="sun-info"><div class="sun-lbl">Sunset</div><div class="sun-val" id="sunset"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
